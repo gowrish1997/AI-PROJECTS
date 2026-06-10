@@ -3,6 +3,7 @@ import os
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(root_dir)
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from langchain.agents import create_agent
 from langchain.agents.middleware import wrap_tool_call
@@ -16,7 +17,8 @@ from scripts import base_tools, utils,prompts
 load_dotenv()
 
 
-llm = ChatGoogleGenerativeAI(model="gemini-3-flash-preview")
+# llm = ChatGoogleGenerativeAI(model="gemini-3-flash-preview")
+llm = ChatOpenAI(model="gpt-4o-mini",temperature=0.2)
 checkpointer=InMemorySaver()
 
 @wrap_tool_call

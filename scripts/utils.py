@@ -6,7 +6,7 @@ import json
 # MCP Config Loader
 # -------------------------
 def load_mcp_config(*server_names):
-    config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'mcp_config.json')
+    config_path = os.path.join(os.path.dirname(__file__), 'mcp_config.json')
 
     with open(config_path, 'r') as f:
         all_configs = json.load(f)
